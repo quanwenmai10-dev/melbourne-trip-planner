@@ -1,4 +1,4 @@
-type ViewType = 'overview' | 'itinerary' | 'restaurants' | 'attractions' | 'budget';
+type ViewType = 'overview' | 'itinerary' | 'restaurants' | 'attractions' | 'budget' | 'transport';
 
 interface NavigationProps {
   activeView: ViewType;
@@ -9,6 +9,7 @@ export default function Navigation({ activeView, onViewChange }: NavigationProps
   const navItems: { id: ViewType; label: string; icon: string }[] = [
     { id: 'overview', label: '概览', icon: '🏠' },
     { id: 'itinerary', label: '行程', icon: '📅' },
+    { id: 'transport', label: '交通', icon: '🚇' },
     { id: 'restaurants', label: '美食', icon: '🍽️' },
     { id: 'attractions', label: '景点', icon: '🎫' },
     { id: 'budget', label: '预算', icon: '💰' },

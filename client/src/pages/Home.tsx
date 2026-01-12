@@ -4,10 +4,11 @@ import ItineraryView from '@/components/ItineraryView';
 import BudgetCalculator from '@/components/BudgetCalculator';
 import RestaurantGuide from '@/components/RestaurantGuide';
 import AttractionGuide from '@/components/AttractionGuide';
+import TransportGuide from '@/components/TransportGuide';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
 
-type ViewType = 'overview' | 'itinerary' | 'restaurants' | 'attractions' | 'budget';
+type ViewType = 'overview' | 'itinerary' | 'restaurants' | 'attractions' | 'budget' | 'transport';
 
 export default function Home() {
   const [activeView, setActiveView] = useState<ViewType>('overview');
@@ -127,6 +128,7 @@ export default function Home() {
         {activeView === 'restaurants' && <RestaurantGuide restaurants={restaurants} />}
         {activeView === 'attractions' && <AttractionGuide attractions={attractions} />}
         {activeView === 'budget' && <BudgetCalculator itinerary={itinerary} />}
+        {activeView === 'transport' && <TransportGuide />}
       </main>
 
       {/* Footer */}
@@ -141,6 +143,7 @@ export default function Home() {
               <h4 className="font-bold text-lg mb-4">快速链接</h4>
               <ul className="space-y-2 text-slate-400">
                 <li><button onClick={() => setActiveView('itinerary')} className="hover:text-white transition">行程安排</button></li>
+                <li><button onClick={() => setActiveView('transport')} className="hover:text-white transition">交通指南</button></li>
                 <li><button onClick={() => setActiveView('restaurants')} className="hover:text-white transition">美食推荐</button></li>
                 <li><button onClick={() => setActiveView('attractions')} className="hover:text-white transition">景点指南</button></li>
               </ul>
